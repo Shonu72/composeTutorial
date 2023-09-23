@@ -1,6 +1,5 @@
 package co.techlax.firstcompose
-
-//import android.graphics.Color
+// import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -41,14 +40,14 @@ class MainActivity : ComponentActivity() {
 //                listViewFunction(R.drawable.prof,"Shourya","Sde 1")
 //            }
 
-            circlePreview()
+            PreviewItem()
         }
     }
 }
 
-//@Preview(showBackground = true, widthDp = 300, heightDp = 500)
+// @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
-fun listViewFunction(imgId:Int, name:String, des:String, modifier: Modifier){
+fun listViewFunction(imgId: Int, name: String, des: String, modifier: Modifier) {
     // in case of column we arrange items in the vertical(ek ke niche ek) but in row we arrange them in horizontal(ek k baad ek)
 //    Column(
 //        verticalArrangement = Arrangement.Center,
@@ -68,38 +67,41 @@ fun listViewFunction(imgId:Int, name:String, des:String, modifier: Modifier){
 //    }
 
     Row(modifier.padding(8.dp)) {
-        Image(painter = painterResource(id = imgId),
-            contentDescription ="",
-            Modifier.size(200.dp)
+        Image(
+            painter = painterResource(id = imgId),
+            contentDescription = "",
+            Modifier.size(200.dp),
         )
         Column {
-            Text(text = name, fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+            Text(
+                text = name,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
             )
             Text(text = des, fontSize = 18.sp)
         }
     }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextInput(){
-val state = remember{ mutableStateOf("")}
-TextField(
-    value = state.value,
-    onValueChange = {
-        Log.d("MyCode", it)
-        state.value = it
-
-    },
-    label = { Text(text = "Enter input ")}
-)
-
+fun TextInput() {
+    val state = remember { mutableStateOf("") }
+    TextField(
+        value = state.value,
+        onValueChange = {
+            Log.d("MyCode", it)
+            state.value = it
+        },
+        label = { Text(text = "Enter input ") },
+    )
 }
+
 @Composable
-private fun previewFUnction(){
-    Text(text = "Preview", fontSize = 20.sp,
+private fun previewFUnction() {
+    Text(
+        text = "Preview",
+        fontSize = 20.sp,
         color = Color.White,
         modifier = Modifier
             .clickable { }
@@ -108,18 +110,18 @@ private fun previewFUnction(){
             .padding(10.dp)
             .border(4.dp, Color.Red)
             .clip(CircleShape)
-            .background(Color.Yellow)
+            .background(Color.Yellow),
     )
 }
 
-
 @Composable
-fun circlePreview(){
-    Image(painter = painterResource(id = R.drawable.prof),
+fun circlePreview() {
+    Image(
+        painter = painterResource(id = R.drawable.prof),
         contentScale = ContentScale.Crop,
         modifier = Modifier.size(80.dp)
             .clip(CircleShape)
             .border(2.dp, Color.LightGray, CircleShape),
-        contentDescription = "" )
-
+        contentDescription = "",
+    )
 }

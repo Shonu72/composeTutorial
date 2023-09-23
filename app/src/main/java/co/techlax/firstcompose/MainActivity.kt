@@ -32,15 +32,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//                TextInput()
-//            Column {
-//                listViewFunction(R.drawable.prof,"Shourya","Sde 1")
-//                listViewFunction(R.drawable.prof,"Shourya","Sde 1")
-//                listViewFunction(R.drawable.prof,"Shourya","Sde 1")
-//                listViewFunction(R.drawable.prof,"Shourya","Sde 1")
-//            }
-
-            PreviewItem()
+            notificationScree()
         }
     }
 }
